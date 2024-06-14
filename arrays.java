@@ -118,7 +118,7 @@ public class arrays {
         prefix[i]=prefix[i-1]+array[i];
        }
 
-       //calculating max sum
+       //calculating max sum 
 
        for(int i=0;i<array.length;i++){
         int start =i;
@@ -152,17 +152,17 @@ public class arrays {
         int array2[]={1,2,3,4,5,6,7,8,9};
         int array3[] = {1,-2,6,-1,3};
         int key = 6;
-      //   System.out.print(" the index of the key is " );
-      //   System.out.println(linear_Search(key, array));
-      //   System.out.println(largest(array));
-      //  System.out.println(binary(array2, key));
-      //   //reverse(array2);
-      //   for(int i =0;i<array2.length;i++){
-      //       System.out.print(array2[i]+" ");
-      //   }
-      //   System.out.println();
-      //   //pairs(array2);
-      //   subarrays(array2);
+        System.out.print(" the index of the key is " );
+        System.out.println(linear_Search(key, array));
+        System.out.println(largest(array));
+       System.out.println(binary(array2, key));
+        //reverse(array2);
+        for(int i =0;i<array2.length;i++){
+            System.out.print(array2[i]+" ");
+        }
+        System.out.println();
+        //pairs(array2);
+        subarrays(array2);
         maxsubarraySum(array3);
         prefixSum(array3);
         maxsum(array3);
