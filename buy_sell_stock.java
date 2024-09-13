@@ -1,4 +1,3 @@
-import java.util.*;
 public class buy_sell_stock{
 
     public static int calculateProfit(int prices[]){

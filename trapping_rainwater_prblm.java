@@ -1,35 +1,32 @@
 public class trapping_rainwater_prblm {
 
-    public static int trappedWater(int array[]){
-        int waterTrapped = 0;
-        //calculate the leftmax array 
-        int leftMax[] = new int[array.length];
-        leftMax[0]=array[0];
-        for(int i =1;i<array.length;i++ ){
-            leftMax[i] = Math.max(array[i],leftMax[i-1]);
+    public static int trappedwater(int array[]){
+
+        int n = array.length;
+        //calculate leftmax
+        int leftmax[] = new int[n];
+        leftmax[0] = array[0];
+        for(int i =1 ; i<n;i++){
+            leftmax[i] = Math.max(leftmax[i-1] , array[i]);
+        }
+        //calculate rightmax
+        int rightmax[] = new int[n];
+        rightmax[n-1] = array[n-1];
+        for(int i =n-2 ; i>=0;i--){
+            rightmax[i] = Math.max(rightmax[i+1] , array[i]);
+        }
+        //loop to calculate waterlevel and trapped water
+        int trapped = 0;
+        for(int i =0 ; i<n;i++){
+            int waterlevel= Math.min(leftmax[i],rightmax[i]);
+            trapped+=waterlevel-array[i];
         }
 
-        //calculating rightMax
-        int rightMax[]=new int[array.length];
-        rightMax[array.length-1]=array[array.length-1];
-        for(int i= array.length-2;i>=0;i--){
-            rightMax [i] = Math.max(array[i],rightMax[i+1]);
-        }
-
-        //loop 
-        for(int i=0;i<array.length;i++){
-            //calculating water level
-            int waterLevel = Math.min(leftMax[i],rightMax[i]);
-            //calculating total rainwater trapped
-            waterTrapped += (waterLevel-array[i]) * 1;
-
-        }
-
-        return waterTrapped;
+        return trapped;
     }
     public static void main(String args[]){
 
         int height[]={4,2,0,6,3,2,5};
-        System.out.println("amount water trapped between the bars is " + trappedWater(height));
+        System.out.println("amount water trapped between the bars is " + trappedwater(height));
     }
 }
